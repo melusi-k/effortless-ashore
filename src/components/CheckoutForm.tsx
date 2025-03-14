@@ -285,7 +285,7 @@ const CheckoutForm: React.FC = () => {
               <div key={item.id} className="flex items-center space-x-4">
                 <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-border/50">
                   <img
-                    src={item.image}
+                    src={item.image || item.imageUrl}
                     alt={item.name}
                     className="h-full w-full object-cover object-center"
                   />

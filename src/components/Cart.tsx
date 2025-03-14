@@ -75,7 +75,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
                 <div key={item.id} className="flex items-center space-x-4 py-4 border-b border-border/50 animate-fade-in">
                   <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-md border border-border/50">
                     <img
-                      src={item.image}
+                      src={item.image || item.imageUrl}
                       alt={item.name}
                       className="h-full w-full object-cover object-center"
                     />

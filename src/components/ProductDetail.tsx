@@ -35,6 +35,9 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
     : 0;
 
+  // Use imageUrl as fallback for image if the latter is not available
+  const productImage = product.image || product.imageUrl;
+
   return (
     <div className="product-detail-container animate-fade-in">
       <div className="flex items-center text-sm text-muted-foreground mb-6">
@@ -49,7 +52,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
         <div className="product-detail-image-container">
           <div className={isImageLoaded ? 'hidden' : 'image-loading absolute inset-0'} />
           <img 
-            src={product.image} 
+            src={productImage} 
             alt={product.name} 
             className="product-detail-image"
             onLoad={() => setIsImageLoaded(true)}

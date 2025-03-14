@@ -13,7 +13,7 @@ export interface Product {
   rating: number;
   featured: boolean;
   inStock: boolean;
-  originalPrice?: number;  // Added this property to fix TypeScript errors
+  originalPrice?: number;  // Added this missing property
 }
 
 interface ProductCardProps {
