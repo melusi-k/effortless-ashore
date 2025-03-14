@@ -25,15 +25,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const productImage = product.image || product.imageUrl;
   
   return (
-    <div className="product-card animate-scale-in">
-      <Link to={`/products/${product.id}`}>
-        <div className="product-card-image-container">
-          <img src={productImage} alt={product.name} className="product-card-image" />
+    <div className="product-card animate-scale-in group rounded-lg border border-border/30 hover:border-border hover:shadow-md transition-all duration-200">
+      <Link to={`/products/${product.id}`} className="block h-full">
+        <div className="product-card-image-container overflow-hidden rounded-t-lg">
+          <img 
+            src={productImage} 
+            alt={product.name} 
+            className="product-card-image h-60 w-full object-cover object-center group-hover:scale-105 transition-transform duration-300" 
+          />
         </div>
-        <div className="product-card-content">
+        <div className="product-card-content p-4">
           <h3 className="text-lg font-medium">{product.name}</h3>
-          <p className="text-muted-foreground text-sm">{product.description.substring(0, 50)}...</p>
-          <div className="flex items-center justify-between">
+          <p className="text-muted-foreground text-sm mt-1">{product.description.substring(0, 50)}...</p>
+          <div className="flex items-center justify-between mt-4">
             <div className="flex items-center space-x-2">
               <span className="text-xl font-medium">${product.price.toFixed(2)}</span>
               {product.originalPrice && (
