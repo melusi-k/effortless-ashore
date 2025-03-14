@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 223 60% 50%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -30,24 +31,17 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 223 60% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -61,8 +55,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 223 60% 50%;
+    --primary-foreground: 210 40% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -78,15 +72,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --ring: 223 60% 50%;
   }
 }
 
@@ -97,5 +83,207 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth transitions for hover and focus states */
+  a, button, input, select, textarea {
+    @apply transition-colors duration-200;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/40;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  /* Page transitions */
+  .page-transition-enter {
+    @apply opacity-0;
+  }
+
+  .page-transition-enter-active {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+
+  .page-transition-exit {
+    @apply opacity-100;
+  }
+
+  .page-transition-exit-active {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  /* Image loading */
+  .image-loading {
+    @apply bg-muted animate-pulse rounded-md;
+  }
+}
+
+@layer components {
+  .product-card {
+    @apply relative overflow-hidden bg-card rounded-lg border border-border/50 hover:border-border transition-all duration-300 hover:shadow-md;
+  }
+
+  .product-card-image-container {
+    @apply relative aspect-square overflow-hidden bg-muted/20;
+  }
+
+  .product-card-image {
+    @apply w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105;
+  }
+
+  .product-card-content {
+    @apply p-4 space-y-2;
+  }
+
+  .product-detail-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+
+  .product-detail-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16;
+  }
+
+  .product-detail-image-container {
+    @apply relative aspect-square overflow-hidden bg-muted/20 rounded-lg;
+  }
+
+  .product-detail-image {
+    @apply w-full h-full object-cover transition-all duration-700 ease-out;
+  }
+
+  .product-detail-content {
+    @apply space-y-6;
+  }
+
+  .product-price {
+    @apply text-xl font-medium;
+  }
+
+  .product-discount {
+    @apply text-destructive line-through text-sm ml-2;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary disabled:opacity-50 disabled:pointer-events-none transition-colors duration-200;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-secondary-foreground bg-secondary hover:bg-secondary/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary disabled:opacity-50 disabled:pointer-events-none transition-colors duration-200;
+  }
+
+  .button-outline {
+    @apply inline-flex items-center justify-center rounded-md border border-input px-4 py-2 text-sm font-medium bg-background hover:bg-accent hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary disabled:opacity-50 disabled:pointer-events-none transition-colors duration-200;
+  }
+  
+  .button-link {
+    @apply inline-flex items-center justify-center p-0 text-sm font-medium text-primary hover:text-primary/80 focus:outline-none disabled:opacity-50 disabled:pointer-events-none transition-colors duration-200;
+  }
+
+  .cart-container {
+    @apply fixed top-0 right-0 z-50 w-full max-w-md h-screen bg-background shadow-xl flex flex-col;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cart-container.open {
+    transform: translateX(0);
+  }
+
+  .cart-overlay {
+    @apply fixed inset-0 z-40 bg-black/25 backdrop-blur-sm;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .cart-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .admin-card {
+    @apply bg-card p-6 rounded-lg border border-border/50 hover:border-border transition-all duration-300 hover:shadow-md;
+  }
+
+  .navbar {
+    @apply sticky top-0 z-30 w-full backdrop-blur-lg bg-background/80 border-b border-border/40;
+  }
+
+  .navbar-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .navbar-inner {
+    @apply flex h-16 items-center justify-between;
+  }
+
+  .navbar-logo {
+    @apply text-xl font-medium text-foreground;
+  }
+
+  .navbar-nav {
+    @apply hidden md:flex md:items-center md:space-x-8;
+  }
+
+  .navbar-link {
+    @apply text-sm font-medium text-foreground/80 hover:text-foreground transition-colors;
+  }
+
+  .navbar-link.active {
+    @apply text-foreground;
+  }
+
+  .mobile-menu {
+    @apply fixed inset-0 z-50 bg-background flex flex-col p-8 md:hidden;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav {
+    @apply flex flex-col space-y-6 mt-12;
+  }
+
+  .mobile-link {
+    @apply text-xl font-medium text-foreground/80 hover:text-foreground transition-colors;
+  }
+
+  .mobile-link.active {
+    @apply text-foreground;
   }
 }
