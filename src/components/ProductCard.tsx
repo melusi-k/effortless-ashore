@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -7,10 +8,12 @@ export interface Product {
   description: string;
   price: number;
   imageUrl: string;
+  image?: string;  // Added for backward compatibility
   category: string;
   rating: number;
   featured: boolean;
   inStock: boolean;
+  originalPrice?: number;  // Added this property to fix TypeScript errors
 }
 
 interface ProductCardProps {
