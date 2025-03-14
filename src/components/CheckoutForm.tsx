@@ -281,26 +281,31 @@ const CheckoutForm: React.FC = () => {
           <h2 className="text-lg font-medium mb-4">Order Summary</h2>
           
           <div className="space-y-4 mb-6">
-            {cartItems.map((item) => (
-              <div key={item.id} className="flex items-center space-x-4">
-                <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-border/50">
-                  <img
-                    src={item.image || item.imageUrl}
-                    alt={item.name}
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-medium">{item.name}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    Qty: {item.quantity}
+            {cartItems.map((item) => {
+              // Use imageUrl as fallback for image if the latter is not available
+              const productImage = item.image || item.imageUrl;
+              
+              return (
+                <div key={item.id} className="flex items-center space-x-4">
+                  <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-border/50">
+                    <img
+                      src={productImage}
+                      alt={item.name}
+                      className="h-full w-full object-cover object-center"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-medium">{item.name}</h3>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      Qty: {item.quantity}
+                    </p>
+                  </div>
+                  <p className="text-sm font-medium">
+                    ${(item.price * item.quantity).toFixed(2)}
                   </p>
                 </div>
-                <p className="text-sm font-medium">
-                  ${(item.price * item.quantity).toFixed(2)}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
           
           <div className="border-t border-border/40 pt-4 space-y-2">
