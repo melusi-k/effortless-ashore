@@ -229,3 +229,19 @@ export const mockProducts: Product[] = [
     originalPrice: 375.00,
   },
 ];
+
+// Adding more fragrance products to reach at least 100 items
+for (let i = 0; i < 85; i++) {
+  mockProducts.push({
+    id: generateId(),
+    name: `Fragrance ${i + 1}`,
+    description: `A unique and captivating fragrance with a blend of exotic notes. Perfect for any occasion.`,
+    price: parseFloat((Math.random() * 100 + 50).toFixed(2)),
+    imageUrl: 'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    category: 'Fragrances',
+    rating: parseFloat((Math.random() * 1 + 4).toFixed(1)),
+    featured: Math.random() > 0.5,
+    inStock: true,
+  });
+}
