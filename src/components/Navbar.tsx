@@ -1,9 +1,37 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBag, User } from 'lucide-react';
 import Cart from './Cart';
 import CartButton from './CartButton';
+import CollectionsMenu from './CollectionsMenu';
+
+const categories = [
+  {
+    title: 'Electronics',
+    description: 'Discover our range of cutting-edge electronics and gadgets.',
+    path: '/products?category=Electronics'
+  },
+  {
+    title: 'Home',
+    description: 'Find beautiful items to enhance your living space.',
+    path: '/products?category=Home'
+  },
+  {
+    title: 'Clothing',
+    description: 'Explore our collection of stylish and comfortable clothing.',
+    path: '/products?category=Clothing'
+  },
+  {
+    title: 'Accessories',
+    description: 'Complete your look with our curated accessories.',
+    path: '/products?category=Accessories'
+  },
+  {
+    title: 'Fragrances',
+    description: 'Experience our luxurious collection of perfumes and fragrances.',
+    path: '/products?category=Fragrances'
+  }
+];
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,10 +84,10 @@ const Navbar: React.FC = () => {
             <Link to="/products" className={`navbar-link ${isActive('/products') ? 'active' : ''}`}>
               Shop
             </Link>
-            <Link to="#" className="navbar-link">
-              Collections
-            </Link>
-            <Link to="#" className="navbar-link">
+            <div className="navbar-link">
+              <CollectionsMenu />
+            </div>
+            <Link to="/about" className={`navbar-link ${isActive('/about') ? 'active' : ''}`}>
               About
             </Link>
           </nav>
@@ -102,10 +130,17 @@ const Navbar: React.FC = () => {
           <Link to="/products" className={`mobile-link ${isActive('/products') ? 'active' : ''}`}>
             Shop
           </Link>
-          <Link to="#" className="mobile-link">
-            Collections
-          </Link>
-          <Link to="#" className="mobile-link">
+          {categories.map((category) => (
+            <Link
+              key={category.title}
+              to={`/products?category=${category.title}`}
+              className="mobile-link"
+              onClick={closeMenu}
+            >
+              {category.title}
+            </Link>
+          ))}
+          <Link to="/about" className={`mobile-link ${isActive('/about') ? 'active' : ''}`}>
             About
           </Link>
           <Link to="/account" className="mobile-link">

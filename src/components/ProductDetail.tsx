@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ShoppingBag, Heart, ChevronRight, Check } from 'lucide-react';
 import { Product } from './ProductCard';
@@ -70,9 +69,9 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
           <p className="text-lg text-muted-foreground mt-2">{product.category}</p>
           
           <div className="flex items-center mt-6">
-            <span className="text-2xl font-medium">${product.price.toFixed(2)}</span>
+            <span className="text-2xl font-medium">R{product.price.toFixed(2)}</span>
             {product.originalPrice && (
-              <span className="product-discount ml-3">${product.originalPrice.toFixed(2)}</span>
+              <span className="product-discount ml-3">R{product.originalPrice.toFixed(2)}</span>
             )}
           </div>
           

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
@@ -301,7 +300,7 @@ const CheckoutForm: React.FC = () => {
                     </p>
                   </div>
                   <p className="text-sm font-medium">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    R{(item.price * item.quantity).toFixed(2)}
                   </p>
                 </div>
               );
@@ -311,7 +310,7 @@ const CheckoutForm: React.FC = () => {
           <div className="border-t border-border/40 pt-4 space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-muted-foreground">Subtotal</span>
-              <span>${total.toFixed(2)}</span>
+              <span>R{total.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-muted-foreground">Shipping</span>
@@ -319,11 +318,11 @@ const CheckoutForm: React.FC = () => {
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-muted-foreground">Tax</span>
-              <span>${(total * 0.07).toFixed(2)}</span>
+              <span>R{(total * 0.15).toFixed(2)}</span>
             </div>
             <div className="flex justify-between font-medium pt-2 border-t border-border/40">
               <span>Total</span>
-              <span>${(total + (total * 0.07)).toFixed(2)}</span>
+              <span>R{(total + (total * 0.15)).toFixed(2)}</span>
             </div>
           </div>
           

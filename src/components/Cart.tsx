@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { X, Trash2, Plus, Minus } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -87,7 +86,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
                     <div className="flex-1 min-w-0">
                       <h3 className="text-sm font-medium">{item.name}</h3>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        ${item.price.toFixed(2)}
+                        R{item.price.toFixed(2)}
                       </p>
                       <div className="flex items-center mt-2">
                         <button 
@@ -121,9 +120,23 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
 
         {cartItems.length > 0 && (
           <div className="p-4 border-t border-border">
-            <div className="flex justify-between text-base font-medium mb-4">
-              <p>Subtotal</p>
-              <p>${total.toFixed(2)}</p>
+            <div className="border-t border-border/40 pt-4 space-y-2">
+              <div className="flex justify-between text-sm">
+                <span className="text-muted-foreground">Subtotal</span>
+                <span>R{total.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-muted-foreground">Shipping</span>
+                <span>Free</span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-muted-foreground">Tax</span>
+                <span>R{(total * 0.15).toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between font-medium pt-2 border-t border-border/40">
+                <span>Total</span>
+                <span>R{(total + (total * 0.15)).toFixed(2)}</span>
+              </div>
             </div>
             <div className="space-y-2">
               <Link 

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { X } from 'lucide-react';
 
@@ -41,7 +40,7 @@ const ActiveFilters: React.FC<ActiveFiltersProps> = ({
         )}
         {(priceRange[0] > 0 || priceRange[1] < 1000) && (
           <div className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm">
-            ${priceRange[0]} - ${priceRange[1]}
+            R{priceRange[0]} - R{priceRange[1]}
             <button
               onClick={onClearPriceRange}
               className="ml-2 h-4 w-4 rounded-full text-muted-foreground hover:text-foreground"

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -39,9 +38,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <p className="text-muted-foreground text-sm mt-1">{product.description.substring(0, 50)}...</p>
           <div className="flex items-center justify-between mt-4">
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-medium">${product.price.toFixed(2)}</span>
+              <span className="text-xl font-medium">R{product.price.toFixed(2)}</span>
               {product.originalPrice && (
-                <span className="text-sm text-muted-foreground line-through">${product.originalPrice.toFixed(2)}</span>
+                <span className="text-sm text-muted-foreground line-through">R{product.originalPrice.toFixed(2)}</span>
               )}
             </div>
             {product.featured && (
