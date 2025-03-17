@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
-  base: '/',
+  base: '/effortless-ashore/',
   server: {
     host: "::",
     port: 8080

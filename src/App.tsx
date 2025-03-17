@@ -12,8 +12,8 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 
 const queryClient = new QueryClient();
-// Use root path for base URL
-const basePath = '/';
+// Get the base path for GitHub Pages deployment
+const basePath = '/effortless-ashore';
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

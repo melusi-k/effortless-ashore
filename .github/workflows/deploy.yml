@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: bun run build
         env:
-          PUBLIC_URL: /
+          PUBLIC_URL: /effortless-ashore
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
