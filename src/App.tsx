@@ -12,8 +12,8 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 
 const queryClient = new QueryClient();
-// Get the base path from the Vite config
-const basePath = import.meta.env.BASE_URL || '/';
+// Use root path for base URL
+const basePath = '/';
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
