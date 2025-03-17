@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +12,8 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 
 const queryClient = new QueryClient();
+// Get the base path from the Vite config
+const basePath = import.meta.env.BASE_URL || '/';
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -18,7 +21,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename={basePath}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/products" element={<Products />} />
