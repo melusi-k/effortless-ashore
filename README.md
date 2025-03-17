@@ -1,3 +1,4 @@
+
 # Shop by Sparkles
 
 A modern e-commerce platform built with React, TypeScript, and Tailwind CSS.
@@ -19,6 +20,8 @@ A modern e-commerce platform built with React, TypeScript, and Tailwind CSS.
 - Vite
 - Tailwind CSS
 - React Router
+- Shadcn/UI components
+- React Query
 - Bun package manager
 
 ## Getting Started
@@ -68,3 +71,4 @@ MIT
 ## Author
 
 Sparkles
+
