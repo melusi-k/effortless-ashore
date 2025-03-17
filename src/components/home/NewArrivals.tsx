@@ -17,7 +17,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ isLoading, products }) => {
         <div className="flex justify-between items-end mb-12">
           <div className="animate-slide-in">
             <span className="inline-block text-sm text-primary font-medium mb-2">
-              Just Landed
+              Fresh Fragrances
             </span>
             <h2 className="text-3xl font-medium">
               New Arrivals

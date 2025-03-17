@@ -22,10 +22,10 @@ const Products = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 3000]);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   
-  const categories = ['All', 'Electronics', 'Clothing', 'Home', 'Beauty', 'Sports'];
+  const categories = ['All', 'Oud Collection', 'Premium Collection', 'Musk Collection', 'Amber Collection', 'Floral Collection', 'Niche Perfumes'];
 
   // Get category from URL query params
   useEffect(() => {
@@ -90,7 +90,7 @@ const Products = () => {
 
   const clearFilters = () => {
     setSelectedCategory(null);
-    setPriceRange([0, 1000]);
+    setPriceRange([0, 3000]);
     setSearchQuery('');
   };
 
@@ -102,7 +102,7 @@ const Products = () => {
     <Layout>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-          <h1 className="text-3xl font-medium mb-4 md:mb-0">Shop All Products</h1>
+          <h1 className="text-3xl font-medium mb-4 md:mb-0">Luxury Arabian Perfumes</h1>
           
           <div className="flex w-full md:w-auto items-center space-x-2">
             <SearchBar 
@@ -149,7 +149,7 @@ const Products = () => {
               priceRange={priceRange}
               searchQuery={searchQuery}
               onClearCategory={() => setSelectedCategory(null)}
-              onClearPriceRange={() => setPriceRange([0, 1000])}
+              onClearPriceRange={() => setPriceRange([0, 3000])}
               onClearSearch={() => setSearchQuery('')}
               onClearAll={clearFilters}
             />

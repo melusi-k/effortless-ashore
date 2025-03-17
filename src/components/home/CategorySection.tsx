@@ -39,7 +39,7 @@ const CategorySection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-slide-in">
           <span className="inline-block text-sm text-primary font-medium mb-2">
-            Categories
+            Collections
           </span>
           <h2 className="text-3xl font-medium">
             Shop By Category
@@ -48,19 +48,19 @@ const CategorySection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <CategoryCard 
-            title="Electronics" 
-            image="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
-            link="/products?category=electronics"
+            title="Oud Collection" 
+            image="https://images.unsplash.com/photo-1619994403073-2cec844b8e63?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+            link="/products?category=oud collection"
           />
           <CategoryCard 
-            title="Clothing" 
-            image="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
-            link="/products?category=clothing"
+            title="Premium Collection" 
+            image="https://images.unsplash.com/photo-1590736969955-71cc94801759?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+            link="/products?category=premium collection"
           />
           <CategoryCard 
-            title="Home" 
-            image="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
-            link="/products?category=home"
+            title="Musk Collection" 
+            image="https://images.unsplash.com/photo-1523293182086-7651a899d37f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+            link="/products?category=musk collection"
           />
         </div>
       </div>
